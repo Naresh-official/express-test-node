@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: forge-test-app
+  namespace: forge-project-0b09812d-dff1-4499-bd27-d0940e5f8ed9-031bebb3-923
+
+spec:
+  ingressClassName: nginx
+
+  rules:
+    - host: app.forge.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app-031bebb3-9234-4d0d-b2ed-acd13ffd5098
+                port:
+                  number: 80
